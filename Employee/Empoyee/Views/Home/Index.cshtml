@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2><br/>
+Welcome,<B> @HttpContext.Current.User.Identity.Name</B><br /><br />
+<p>You are using Following services</p>
+Click here to Logout
+@if (Request.IsAuthenticated)
+{
+    using(Html.BeginForm("Logout","User",FormMethod.Post,new { id = "logoutForm" }))
+    {
+        <a href="javaScript:document.getElementById('logoutForm').submit()">Logout</a>
+    }
+}
